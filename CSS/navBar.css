@@ -1,0 +1,33 @@
+:root{
+  --button-text-color: #9b9eaf;
+  --button-background-color: rgb(51, 54, 71);
+  --background-color: #242834;
+  --pure-white: #ffffff;
+  --inner-button-border-color: #717485;
+  --hover-button-color: #7800e0;
+}
+
+.navBarContainer{
+  width: 99%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  gap: 16px;
+}
+
+.navBarContainer > button{
+  width: 163px;
+  height: 48px;
+  background-color: var(--button-background-color);
+  color: var(--button-text-color);
+  border: 1px solid;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 200;
+}
+.navBarContainer > button:hover{
+  background-color: var(--hover-button-color);
+  cursor: pointer;
+}

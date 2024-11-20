@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./CSS/navBar.css">
+    <link rel="stylesheet" href="./CSS/field.css">
+    <link rel="stylesheet" href="./CSS/tactic-selection.css">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3701991997665510"
+    crossorigin="anonymous"></script>
+    <title>FM Tactic</title>
+  </head>
+  <body>
+    <script src="./JS/Vector2.js"></script>
+    <script src="./Datas/positions.js"></script>
+    <script src="./JS/index.js"></script>
+
+    <div class="navBarContainer">
+      <button id="bg">Arka Plan</button>
+      <button id="penc">Kalem</button>
+      <button id="shapes">Şekiller</button>
+      <button id="download">Görseli İndir</button>
+    </div>
+    <hr>
+    <div class="dropBoxContainer">
+      <h2 class="dropBoxTitle">Taktik</h2>
+      <div class="dropBox" onmousedown="TaktikSelectionLabel()"></div>
+    </div>
+    <div class="openedLabel" ></div>
+    <canvas width="1200" height="800" class="field"></canvas>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+.field{
+  border: 1px solid 'black';
+  border-radius: 5px;
+}
+body{
+  background-color: var(--background-color);
+}

@@ -1,0 +1,44 @@
+.dropBoxContainer{
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: center;
+}
+.dropBoxContainer{
+  color: var(--pure-white);
+}
+.dropBox{
+  background-color: var(--button-background-color);
+  cursor: pointer;
+  width: 900px;
+  height: 44px;
+  border: 1px solid var(--inner-button-border-color);
+  border-radius: 10px;
+}
+.dropBox:hover{
+  background-color: var(--hover-button-color);
+}
+.dropBox > option{
+  cursor: pointer;
+}
+.openedLabel{
+  position: absolute;
+  background-color: var(--button-background-color);
+  width: 855px;
+  height: 549px;
+  opacity: 1;
+  border: 1px solid #717485;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 53px;
+  padding-left: 7px;
+  padding-right: 7px;
+  position: absolute;
+  left: 127px;
+  top: 105px;
+  z-index: 2;
+}
