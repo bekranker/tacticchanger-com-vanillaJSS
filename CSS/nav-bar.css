@@ -1,0 +1,33 @@
+:root{
+  --navbutton-color: rgb(51, 54, 71);
+  --navbutton-hover-color: rgb(120, 0, 224);
+  --navbutton-text-color: #9c9fb0;
+  --navbutton-text-hover-color: #ffffff;
+
+}
+.navigation-bar{
+  display: flex;
+}
+.nav-button-parent-div{
+  display: flex;
+  flex-direction: column;
+}
+.nav-bar-button{
+  width: 170px;
+  height: 48px;
+  background-color: var(--navbutton-color);
+  color: var(--navbutton-text-color);
+  transition: background-color 125ms color 125ms;
+  border: 1px solid #717485;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-bottom: 16px;
+  margin-left: 10px;
+  margin-top: 16px;
+}
+.nav-bar-button:hover{
+  cursor: pointer;
+  background-color: var(--navbutton-hover-color);
+  color: var(--navbutton-text-hover-color);
+  transition: background-color 125ms color 125ms;
+}

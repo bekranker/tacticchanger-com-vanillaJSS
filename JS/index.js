@@ -1,44 +1,104 @@
-let isOpen = false;
-let interval;
-let labelAnim;
+const Elements = [
+  {
+    name: "Backgrounds",
+    panelItems: 
+    [
+      {
+        name: "Red",
+        functionalty: ()=>{console.log("This is Red");}
+      },
+      {
+        name: "Green",
+        functionalty: ()=>{console.log("This is Green");}
+      },
+      {
+        name: "Blue",
+        functionalty: ()=>{console.log("This is Blue");}
+      }
+    ]
+  },
+  {
+    name: "Pencil",
+    panelItems: 
+    [
+      {
+        name: "Pen",
+        functionalty: ()=>{console.log("This is Red");}
+      },
+      {
+        name: "Erase",
+        functionalty: ()=>{console.log("This is Green");}
+      },
+    ]
+  },
+  {
+    name: "Shapes",
+    panelItems: 
+    [
+      {
+        name: "Rectangle",
+        functionalty: ()=>{console.log("This is Red");}
+      },
+      {
+        name: "Circle",
+        functionalty: ()=>{console.log("This is Green");}
+      },
+      {
+        name: "Line",
+        functionalty: ()=>{console.log("This is Blue");}
+      }
+    ]
+  },
+  {
+    name: "Download",
+    panelItems: 
+    [
+      {
+        name: "JPEG",
+        functionalty: ()=>{console.log("This is Red");}
+      },
+      {
+        name: "PNG",
+        functionalty: ()=>{console.log("This is Green");}
+      },
+    ]
+  },
+];
 
 
-function TaktikSelectionLabel(){  
-  isOpen = !isOpen;
+
+function CreateNavigationBar(){
+  const parentNavDiv = document.querySelector(".navigation-bar");
   
-  const label = document.querySelector(".openedLabel");
-  
-  if (interval !== null | undefined) {
-    clearInterval(interval);
-  }
-  
-  renderAnim(label);
+  Elements.forEach((element)=>{
+    const parentDivOfButtonAndPanel = document.createElement("div");
+    parentDivOfButtonAndPanel.classList.add("nav-button-parent-div");
+    parentNavDiv.appendChild(parentDivOfButtonAndPanel);
+
+    const newButton = document.createElement("button");
+    
+    newButton.classList.add("nav-bar-button");
+    
+    newButton.innerHTML = `${element.name}`;
+    parentDivOfButtonAndPanel.appendChild(newButton);
+
+    createLists(parentDivOfButtonAndPanel, element);
+  });
 }
-function renderAnim(label){
-  labelAnim = new FadeInOutAnim(label);
-
-  interval = setInterval(()=>{
-    labelAnim.render();
-  }, 20);
+//element is the array that we take from buttons object props.
+function createLists(Parent, element){
+  let newUl = document.createElement("ul");
+  newUl.style.listStyleType = "None";
+  newUl.style.color = "#ffffff";
+  newUl.style.position = "relative";
+  for(let i = 0; i < element.panelItems.length; i++){
+    let newLi = document.createElement("li");
+    newLi.id = `${element.panelItems[i].name}-panel-item-${i}`;
+    newLi.innerHTML = `${element.panelItems[i].name}`;
+    newUl.appendChild(newLi);
+  }
+  Parent.appendChild(newUl);
 }
-function FadeInOutAnim(label){
-  this.startValue = 0;
-  this.endValue = 0;
-  this.dir = 0;
-  if (isOpen) {
-    this.startValue = 1;
-    this.endValue = 0;
-    this.dir = -.1;
-  }
-  else{
-    this.dir = .1;
-    this.endValue = 1;
-    this.startValue = 0;
-  }
-  label.style.opacity = this.startValue;
-  this.render = ()=>{
-    label.style.opacity = this.startValue;
-    if(label.style.opacity !== this.endValue)
-      this.startValue += this.dir;
-  }
+function navBarEnter(){
+
 }
