@@ -1,26 +1,27 @@
+
+
 const FPS = 1000 / 60;
 
 
 window.onload = ()=>{
-  //orders is important !!..!!..!!..!!
+  //orders is important !!..!!..!!..!!;
   
   CreateNavigationBar();
   createOptions(); 
   DrawCanvas();
 };
 
-//main thread. why it is not in the 
+//main thread. why it is not in the ;
 const onTickInterval = setInterval(()=>OnTick(), FPS);
 
-const frameProp = {
-  startTime: Date.now(),
-  currentTime: 0,
-}
+const startTime = Date.now();
 
+const worker = new Worker('../JS/Utilts/WorkerDeltaTime.js');
 
-//our own mthrfckr deltaTime and Update methods. Who do fuck need react ?
+//our own mthrfckr deltaTime and Update methods. Who do fuck need react ?;
 function OnTick(){
-  frameProp.currentTime = Date.now();
-  deltaTime = (frameProp.currentTime - frameProp.startTime) / 1000;
-  console.log(deltaTime);
+  worker.postMessage(startTime);
+  worker.onmessage = (e) =>{
+    console.log(e.data);
+  }
 }
