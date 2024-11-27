@@ -17,7 +17,7 @@
   height: 48px;
   background-color: var(--navbutton-color);
   color: var(--navbutton-text-color);
-  transition: background-color 125ms color 125ms;
+  transition: background-color 125ms, color 125ms;
   border: 1px solid #717485;
   border-radius: 10px;
   font-size: 20px;
@@ -29,5 +29,26 @@
   cursor: pointer;
   background-color: var(--navbutton-hover-color);
   color: var(--navbutton-text-hover-color);
-  transition: background-color 125ms color 125ms;
+  transition: background-color 125ms, color 125ms;
+}
+.element-of-nav-bar-panel{
+  display: none;
+  z-index: 2;
+  align-content: center;
+  top: 65px;
+  width: 170px;
+  height: 60px;
+  padding: 0px;
+  text-align: center;
+  list-style-type: None;
+  border-radius: 5px;
+  background-color: var(--navbutton-color);
+  color: var(--navbutton-text-color);
+  position: absolute;
+}
+.element-of-nav-bar-panel > li:hover{
+  border-radius: 2px;
+  cursor: pointer;
+  color: var(--navbutton-text-hover-color);
+  background-color: var(--navbutton-hover-color);
 }

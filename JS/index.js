@@ -65,8 +65,9 @@ const Elements = [
   },
 ];
 
-
-
+/* This lines of code just creating navigation buttons and panel's inside that buttons.
+If you want to change some data (name, panel item's names etc.) check the @Elements variable
+*/
 function CreateNavigationBar(){
   const parentNavDiv = document.querySelector(".navigation-bar");
   
@@ -81,24 +82,26 @@ function CreateNavigationBar(){
     
     newButton.innerHTML = `${element.name}`;
     parentDivOfButtonAndPanel.appendChild(newButton);
-
-    createLists(parentDivOfButtonAndPanel, element);
+    createLists(parentDivOfButtonAndPanel, element, parentDivOfButtonAndPanel);
   });
 }
 //element is the array that we take from buttons object props.
-function createLists(Parent, element){
+function createLists(parent, element, button){
   let newUl = document.createElement("ul");
-  newUl.style.listStyleType = "None";
-  newUl.style.color = "#ffffff";
-  newUl.style.position = "relative";
+  newUl.classList.add("element-of-nav-bar-panel");
   for(let i = 0; i < element.panelItems.length; i++){
     let newLi = document.createElement("li");
     newLi.id = `${element.panelItems[i].name}-panel-item-${i}`;
     newLi.innerHTML = `${element.panelItems[i].name}`;
     newUl.appendChild(newLi);
   }
-  Parent.appendChild(newUl);
+  button.onmouseenter = ()=>navBarEnter(newUl);
+  button.onmouseleave = ()=>navBarExit(newUl);
+  parent.appendChild(newUl);
 }
-function navBarEnter(){
-
+function navBarEnter(panel){
+  panel.style.display = "block";
+}
+function navBarExit(panel){
+  panel.style.display = "none";
 }
