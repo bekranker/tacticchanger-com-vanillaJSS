@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="../CSS/canvas.css">
 
   </head>
-  <body onload="CreateNavigationBar(); createOptions();">
+  <body onload="">
     <script src="../JS/index.js"></script>
     <script src="../JS/Vector2.js"></script>
     <script src="../JS/Tactic/tactic_selection.js"></script>
     <script src="../JS/Play Field/SoccerField.js"></script>
+    <script src="../JS/renderListener.js"></script>
+
 
     
     <div class="navigation-bar"></div>
@@ -20,7 +22,7 @@
 
     <select class="input-select-tactic" style="display: block;">
     </select>
-    <div id="canvas-parent""></div>
+    <div id="canvas-parent" class="canvas-parent"></div>
   </body>
 </html>
 <!--
