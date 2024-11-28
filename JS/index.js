@@ -116,9 +116,18 @@ function createLists(parent, element, button){
   button.onmouseleave = ()=>navBarExit(newUl);
   parent.appendChild(newUl);
 }
+
+// --------------------------------------------------------------------------------------------------------------------------
+// ----------------------------Theese functions at the bellow are just simply for panel animation----------------------------
+// --------------------------------------------------------------------------------------------------------------------------
+
+
+//navigation element mouse enter function
 function navBarEnter(panel){
   panel.style.display = "block";
 }
+
+//navigation element mouse exit function
 function navBarExit(panel){
   panel.style.display = "none";
 }
