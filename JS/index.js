@@ -71,7 +71,7 @@ const Elements = [
 ];
 
 /* This lines of code just creating navigation buttons and panel's inside that buttons.
-If you want to change some data (name, panel item's names etc.) check the @Elements variable
+If you want to change some data (name, panel item's names etc.) check the @param Elements variable
 */
 function CreateNavigationBar(){
   const parentNavDiv = document.querySelector(".navigation-bar");
