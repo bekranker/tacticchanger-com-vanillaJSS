@@ -17,7 +17,7 @@ const onTickInterval = setInterval(()=>OnTick(), FPS);
 const startTime = Date.now();
 
 const worker = new Worker('../JS/Utilts/WorkerDeltaTime.js');
-
+const rendererList = [];
 //our own mthrfckr deltaTime and Update methods. Who do fuck need react ?;
 function OnTick(){
   
@@ -26,6 +26,14 @@ function OnTick(){
   worker.onmessage = (e) =>{
     DeltaTime = e.data;
   }
+  rendererList.forEach((item)=>{
+    item.render();
+  });
+}
 
-
+//add some objects to each frame for rendering
+function registerRenderer(arr){
+  //if its not in the renderer already dont register it again. 
+  if(!rendererList.includes(arr))
+    rendererList.push(arr);
 }

@@ -8,8 +8,10 @@ class Component{
     this.size = size;
     this.colors = colors;
     this.name = name;
+    registerRenderer(this.renderComponent);
   }
-  renderComponent = ()=>{
+  render = (e)=>{
     console.log(`$Rendering: {name}`);
+    e();
   }
 }

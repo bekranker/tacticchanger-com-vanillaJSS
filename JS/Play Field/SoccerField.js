@@ -3,8 +3,7 @@ const BG_GREEN = '../../Images/Background_Green.png';
 let ctx;
 // This is the main call for all render and create seccions;
 function DrawCanvas(){
-  const elma = new Component({x: 0, y: 0}, {x: 1, y: 1}, {backgroundColor: '#000000', borderColor: '#ffffff'}, 'elma');
-  console.log(elma);
+  
   
   const canvas = document.createElement("canvas");
   ctx = canvas.getContext('2d');
@@ -20,7 +19,8 @@ function DrawCanvas(){
 }
 function drawPlayers(){
   for (let i = 1; i <= 12; i++) {
-    playerComponent(i * 10, i * 10, 10);
+    const newPlayer = new Player({x: i* 10, y: 10}, 10, {backgroundColor: "#000000", borderColor: "#ffffff"}, `Player ID${i}`);
+    // playerComponent(i * 10, i * 10, 10);
   }
 }
 // @param imagePath is a string that reperesent the image path bc why not;
