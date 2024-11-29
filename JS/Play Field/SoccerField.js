@@ -19,7 +19,7 @@ function DrawCanvas(){
 }
 function drawPlayers(){
   for (let i = 1; i <= 12; i++) {
-    const newPlayer = new Player({x: i* 10, y: 10}, 10, {backgroundColor: "#000000", borderColor: "#ffffff"}, `Player ID${i}`);
+    const newPlayer = new Player({x: i * 10, y: 10}, 10, {backgroundColor: "#000000", borderColor: "#ffffff"}, `Player ID${i}`);
     // playerComponent(i * 10, i * 10, 10);
   }
 }

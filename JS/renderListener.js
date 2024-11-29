@@ -27,7 +27,7 @@ function OnTick(){
     DeltaTime = e.data;
   }
   rendererList.forEach((item)=>{
-    item.render();
+    item();
   });
 }
 

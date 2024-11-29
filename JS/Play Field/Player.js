@@ -1,17 +1,18 @@
-class Player extends Component{
+class Player{
   constructor(positions,  radius, colors, name){
-    super(positions);
-    super(radius);
-    super(colors);
-    super(name);
-    super(this.renderComponent);
+    this.position = positions;
+    this.radius = radius;
+    this.colors = colors;
+    this.name = name;
+
+    registerRenderer(this.render);
   }
-  render = (e)=>{
+  render = ()=>{
     this.drawMe();
   }
   drawMe = () =>{
     ctx.beginPath();
-    ctx.arc(tihs.positions.x, this.position.y, this.radius, 0, 2 * Math.PI); // Draw a circle
+    ctx.arc(this.position.x, this.position.y, this.radius, 0, 2 * Math.PI);
     ctx.fillStyle = this.colors.backgroundColor; // Set player color
     ctx.fill(); // Fill the circle
     ctx.strokeStyle = this.colors.borderColor; // Optional: Outline the player
