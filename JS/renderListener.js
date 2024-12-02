@@ -40,5 +40,5 @@ function registerRenderer(arr){
 
 function Delete(value){
   rendererList = rendererList.filter((item, _)=>(item !== value));
-  console.log(value);
+  console.log(rendererList);
 }

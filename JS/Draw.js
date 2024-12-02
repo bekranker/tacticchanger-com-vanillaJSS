@@ -13,6 +13,7 @@ class DrawPenc{
     registerRenderer(this.render);
   }
   render = ()=>{
+    this.clearMe();
     this.drawMe();
     console.log("I am in OnTick");
   }
@@ -27,10 +28,17 @@ class DrawPenc{
   }
   clearMe = () =>{
     console.log("clear me is working");
-    this.colors.backgroundColor = '#cccccc';
-    this.colors.borderColor = '#cccccc';
-    this.drawMe();
-    Delete(this);
+    ctx.beginPath();
+    ctx.arc(this.position.x, this.position.y, this.radius, 0, 2 * Math.PI);
+    ctx.fillStyle = "#43ff6400"; // Set player color
+    ctx.fill(); // Fill the circle
+    ctx.strokeStyle = "#43ff6400"; // Optional: Outline the player
+    ctx.lineWidth = 3;
+    ctx.stroke(); // Stroke the circle
+  }
+  DeleteMe = () =>{
+    this.clearMe();
+    Delete(this.render);
   }
 }
 
@@ -57,7 +65,7 @@ function erase(e, rect){
       tempMousePos.y >= item.position.y -offset &&
       tempMousePos.y <= item.position.y +offset)) 
       {
-        item.clearMe();
+        item.DeleteMe();
         marks.splice(index);
       }
   });

@@ -1,4 +1,3 @@
-
 class Player{
   constructor(positions,  radius, colors, name){
     this.position = positions;
@@ -8,6 +7,8 @@ class Player{
     registerRenderer(this.render);
   }
   render = ()=>{
+    this.clearMe();
+    this.position.x += 1;
     this.drawMe();
   }
   drawMe = () =>{
@@ -17,7 +18,8 @@ class Player{
     ctx.fill(); // Fill the circle
     ctx.strokeStyle = this.colors.borderColor; // Optional: Outline the player
     ctx.lineWidth = 3;
-    ctx.stroke(); // Stroke the circle
+  }
+  clearMe = ()=>{
+    ctx.clearRect(this.position.x - this.radius, this.position.y - this.radius, this.radius * 2, this.radius * 2);
   }
 }
-

@@ -23,8 +23,8 @@ function DrawCanvas(){
   } );
 }
 function drawPlayers(){
-  for (let i = 1; i <= 12; i++) {
-    const newPlayer = new Player({x: i * 10, y: 10}, 10, {backgroundColor: "#000000", borderColor: "#ffffff"}, `Player ID${i}`);
+  for (let i = 1; i <= 1; i++) {
+    const newPlayer = new Player({x: i * 100, y: 10}, 10, {backgroundColor: "#000000", borderColor: "#ffffff"}, `Player ID${i}`);
   }
 }
 // @param imagePath is a string that reperesent the image path bc why not;
