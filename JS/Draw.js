@@ -15,6 +15,7 @@ class DrawPenc{
   render = ()=>{
     this.clearMe();
     this.drawMe();
+    
   }
   drawMe = () =>{
     ctx.beginPath();
