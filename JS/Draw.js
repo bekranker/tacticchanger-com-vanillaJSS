@@ -1,10 +1,13 @@
+const marks = [];
+let index = 0;
 
-class Player{
+class DrawPenc{
   constructor(positions,  radius, colors, name){
     this.position = positions;
     this.radius = radius;
     this.colors = colors;
     this.name = name;
+    console.log(`${this.position.x}`);
     registerRenderer(this.render);
   }
   render = ()=>{
@@ -20,4 +23,17 @@ class Player{
     ctx.stroke(); // Stroke the circle
   }
 }
+function DrawPencils(e){
+  index++;
+  const tempMark = new DrawPenc({x: e.x, y: e.y}, 1, {backgroundColor: "#000000", borderColor: "#000000"}, `mark`);
+  if (!marks.includes(tempMark)) {
+    marks.push(tempMark);
+  }
+}
+
+const StartPoint={
+  X:
+
+
+};
 
