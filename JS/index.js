@@ -10,15 +10,11 @@ const Elements = [
     [
       {
         name: "Green",
-        functionalty: ()=>{changeBackground(GREEN_BG_URL, ()=>{
-          drawPlayers();
-        })}
+        functionalty: ()=>{changeBackground(GREEN_BG_URL)}
       },
       {
         name: "White",
-        functionalty: ()=>{changeBackground(WHITE_BG_URL, ()=>{
-          drawPlayers();
-        })}
+        functionalty: ()=>{changeBackground(WHITE_BG_URL)}
       }
     ]
   },

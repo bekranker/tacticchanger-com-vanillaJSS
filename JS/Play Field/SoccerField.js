@@ -13,14 +13,11 @@ function DrawCanvas(){
   canvas.height = 800;
   canvas.classList.add("canvas");
   canvasParent.appendChild(canvas);
+  drawPlayers();
+  canvas.onclick = (e)=>{DrawPencils(e, rect);
+    erase(e, rect);};
 
-  changeBackground(BG_GREEN, ()=>{
-    drawPlayers();
-    document.addEventListener('click', (e)=>{
-      DrawPencils(e, rect);
-      erase(e, rect);
-    });
-  } );
+  
 }
 function drawPlayers(){
   for (let i = 1; i <= 1; i++) {
@@ -28,12 +25,7 @@ function drawPlayers(){
   }
 }
 // @param imagePath is a string that reperesent the image path bc why not;
-function changeBackground(imagePath, callback) {
-  const bgImage = new Image(); // Create a new image element
-  bgImage.src = imagePath;
-  bgImage.onload = () => {
-    // Draw the background when the image has loaded
-    ctx.drawImage(bgImage, 0, 0, ctx.canvas.width, ctx.canvas.height);
-    if (callback) callback();
-  };
+function changeBackground(imagePath) {
+  const bgElement = document.getElementById('bg');
+  bgElement.src = imagePath;
 }

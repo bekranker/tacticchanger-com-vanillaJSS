@@ -8,7 +8,6 @@ class Player{
   }
   render = ()=>{
     this.clearMe();
-    this.position.x += 1;
     this.drawMe();
   }
   drawMe = () =>{
