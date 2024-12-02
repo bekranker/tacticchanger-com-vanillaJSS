@@ -15,7 +15,6 @@ class DrawPenc{
   render = ()=>{
     this.clearMe();
     this.drawMe();
-    console.log("I am in OnTick");
   }
   drawMe = () =>{
     ctx.beginPath();
@@ -26,15 +25,8 @@ class DrawPenc{
     ctx.lineWidth = 3;
     ctx.stroke(); // Stroke the circle
   }
-  clearMe = () =>{
-    console.log("clear me is working");
-    ctx.beginPath();
-    ctx.arc(this.position.x, this.position.y, this.radius, 0, 2 * Math.PI);
-    ctx.fillStyle = "#43ff6400"; // Set player color
-    ctx.fill(); // Fill the circle
-    ctx.strokeStyle = "#43ff6400"; // Optional: Outline the player
-    ctx.lineWidth = 3;
-    ctx.stroke(); // Stroke the circle
+  clearMe = ()=>{
+    ctx.clearRect(this.position.x - 10, this.position.y - 10, 100, 100);
   }
   DeleteMe = () =>{
     this.clearMe();
@@ -66,7 +58,7 @@ function erase(e, rect){
       tempMousePos.y <= item.position.y +offset)) 
       {
         item.DeleteMe();
-        marks.splice(index);
+        marks.splice(index, 1);
       }
   });
 
