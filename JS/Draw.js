@@ -1,7 +1,7 @@
-const marks = [];
+let marks = [];
 let CanDraw = false;
 let CanErase = false;
-
+const offset = 50;
 class DrawPenc{
   constructor(positions,  radius, colors, name){
     this.position = positions;
@@ -14,6 +14,7 @@ class DrawPenc{
   }
   render = ()=>{
     this.drawMe();
+    console.log("I am in OnTick");
   }
   drawMe = () =>{
     ctx.beginPath();
@@ -23,6 +24,13 @@ class DrawPenc{
     ctx.strokeStyle = this.colors.borderColor; // Optional: Outline the player
     ctx.lineWidth = 3;
     ctx.stroke(); // Stroke the circle
+  }
+  clearMe = () =>{
+    console.log("clear me is working");
+    this.colors.backgroundColor = '#cccccc';
+    this.colors.borderColor = '#cccccc';
+    this.drawMe();
+    Delete(this);
   }
 }
 
@@ -43,11 +51,15 @@ function DrawPencils(e, canvas){
 function erase(e, rect){
   if (!CanErase) return;
   const tempMousePos = mousePos(e, rect);
-  marks.forEach((item)=>{
-
-    if (tempMousePos.x > item.position.x + 100 && tempMousePos.x < item.position.x + 100 && tempMousePos.y + 100 > item.position.y && tempMousePos.y < item.position.y + 100) {
-      console.log("I found one");
-    }  
+  marks.forEach((item, index)=>{
+    if ((tempMousePos.x >= item.position.x -offset &&
+      tempMousePos.x <= item.position.x +offset &&
+      tempMousePos.y >= item.position.y -offset &&
+      tempMousePos.y <= item.position.y +offset)) 
+      {
+        item.clearMe();
+        marks.splice(index);
+      }
   });
 
 }

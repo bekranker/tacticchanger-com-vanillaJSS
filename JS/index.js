@@ -35,7 +35,7 @@ const Elements = [
       },
       {
         name: "Erase",
-        functionalty: ()=>{CanDraw = false; CanErase = true;}
+        functionalty: ()=>{CanDraw = false; CanErase = !CanErase;}
       },
     ]
   },
