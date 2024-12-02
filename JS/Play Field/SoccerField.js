@@ -4,6 +4,7 @@ let ctx;
 // This is the main call for all render and create seccions;
 function DrawCanvas(){
   const canvas = document.createElement("canvas");
+  const rect = canvas.getBoundingClientRect();
   ctx = canvas.getContext('2d');
 
   const canvasParent = document.getElementById("canvas-parent");
@@ -16,7 +17,7 @@ function DrawCanvas(){
   changeBackground(BG_GREEN, ()=>{
     drawPlayers();
     document.addEventListener('click', (e)=>{
-      DrawPencils({x: e.clientX, y: e.clientY});
+      DrawPencils(e, rect);
     });
   } );
 }
