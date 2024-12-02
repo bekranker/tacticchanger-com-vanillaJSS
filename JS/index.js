@@ -28,11 +28,14 @@ const Elements = [
     [
       {
         name: "Pen",
-        functionalty: ()=>{console.log("This is Red");}
+        functionalty: ()=>{
+          CanDraw = !CanDraw;
+          CanErase = false;
+        }
       },
       {
         name: "Erase",
-        functionalty: ()=>{console.log("This is Green");}
+        functionalty: ()=>{CanDraw = false; CanErase = true;}
       },
     ]
   },

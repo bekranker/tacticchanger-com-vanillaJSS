@@ -18,6 +18,7 @@ function DrawCanvas(){
     drawPlayers();
     document.addEventListener('click', (e)=>{
       DrawPencils(e, rect);
+      erase(e, rect);
     });
   } );
 }
