@@ -41,11 +41,15 @@ const Elements = [
     [
       {
         name: "Rectangle",
-        functionalty: ()=>{console.log("This is Red");}
+        functionalty: ()=>{DrawingRectangle = !DrawingRectangle;}
       },
       {
         name: "Circle",
         functionalty: ()=>{console.log("This is Green");}
+      },
+      {
+        name: "Arrow",
+        functionalty: ()=>{console.log("This is Blue");}
       },
       {
         name: "Line",

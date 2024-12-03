@@ -16,13 +16,17 @@ function DrawCanvas(){
   
   
   drawPlayers();
-  canvas.onmousedown = (e) => {StartDrawing(e, rect);}
-  canvas.onmouseup = (e) => {StopDrawing(e, rect);}
+
+
+  canvas.onmousedown = (e) => {StartDrawing(e, rect); startDrawingRectangle(e, rect);}
+  canvas.onmouseup = (e) => {StopDrawing(e, rect); endDrawingRectangle();}
   canvas.onmousemove = (e)=>{
+    drawingRectangle(e, rect);
     if (!startDrawing) return;
     DrawPencils(e, rect);
     erase(e, rect);
   };
+
   
 }
 function drawPlayers(){
