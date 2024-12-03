@@ -22,7 +22,7 @@ class DrawPenc{
     ctx.moveTo(StartPosition.x, StartPosition.y);
     ctx.lineTo(tempMousePosition.x, tempMousePosition.y);
     StartPosition = MousePos(e, rect);
-    ctx.lineStyle = "black";
+    ctx.strokeStyle = "black";
     ctx.lineWidth = 2;
     ctx.stroke(); // Stroke the circle
   }
