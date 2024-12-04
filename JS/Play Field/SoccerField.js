@@ -16,7 +16,7 @@ function DrawCanvas(){
 
   
   drawPlayers();
-
+  document.querySelector(".canvas").load = ()=>{console.log("canvas loaded");}
 
   canvas.onmousedown = (e) => {
     StartDrawing(e);

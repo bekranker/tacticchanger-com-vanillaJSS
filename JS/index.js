@@ -52,8 +52,8 @@ const Elements = [
       {
         name: "Rectangle",
         functionalty: ()=>{
-          DrawingShapes = !DrawingShapes;
           DrawingRectangle = !DrawingRectangle;
+          DrawingShapes = DrawingRectangle ? true : false;
           DrawingCircle = false;
           DrawingLine = false;
           DrawingArrow = false;
@@ -66,9 +66,9 @@ const Elements = [
       {
         name: "Circle",
         functionalty: ()=>{
-          DrawingShapes = !DrawingShapes;
-          DrawingRectangle = false;
           DrawingCircle = !DrawingCircle;
+          DrawingShapes = DrawingCircle ? true : false;
+          DrawingRectangle = false;
           DrawingLine = false;
           DrawingArrow = false;
           DrawingDashedRectangle = false;

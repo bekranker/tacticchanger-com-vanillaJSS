@@ -12,10 +12,10 @@ class DrawPenc{
     this.colors = colors;
     this.name = name;
   }
-  render = (e, rect)=>{
+  render = (e)=>{
     this.drawMe(e, rect);
   }
-  drawMe = (e, rect) =>{
+  drawMe = (e) =>{
     console.log("drawing");
     ctx.beginPath();
     const tempMousePosition = MousePos(e, rect);
@@ -26,7 +26,7 @@ class DrawPenc{
     ctx.lineWidth = 2;
     ctx.stroke(); // Stroke the circle
   }
-  clearMe = (e, rect)=>{
+  clearMe = (e)=>{
     const tempPos = MousePos(e, rect);
     ctx.clearRect(tempPos.x, tempPos.y, 20, 20);
   }
@@ -38,7 +38,7 @@ class DrawPenc{
 
 
 
-function DrawPencils(e, rect){
+function DrawPencils(e){
   if (!CanDraw) return;
   const tempMark = new DrawPenc(MousePos(e, rect), 1, {backgroundColor: "#000000", borderColor: "#ffffff"}, `mark`);
   tempMark.render(e, rect);
@@ -46,7 +46,7 @@ function DrawPencils(e, rect){
     marks.push(tempMark);
   }
 }
-function erase(e, rect){
+function erase(e){
   if (!CanErase) return;
   const tempMousePos = MousePos(e, rect);
   ctx.clearRect(tempMousePos.x, tempMousePos.y, 10, 10);
@@ -55,7 +55,7 @@ function erase(e, rect){
 let startDrawing = false;
 
 
-function StartDrawing(e, rect){
+function StartDrawing(e){
   StartPosition = MousePos(e, rect);
   startDrawing = true;
 }

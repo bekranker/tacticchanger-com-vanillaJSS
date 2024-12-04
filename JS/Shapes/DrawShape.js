@@ -17,11 +17,11 @@ let index = 0;
 function startDrawingShape(e){
   if(!DrawingShapes) return;
 
-  reSize = true;
-  const mousePos = MousePos(e);
+  const mousePos = MousePos(e, rect);
   currentShape = createComponent(mousePos);
   console.log(currentShape);
   
+  reSize = currentShape != null;
   currentShape.startPosition = mousePos;
   currentShape.drawMe();
 };
@@ -29,7 +29,13 @@ function startDrawingShape(e){
 //This function calling every time on mouse move on the canvas, e still same;
 function drawingShape(e){
   if (!reSize) return;
-  currentShape.reSizeMe(MousePos(e));
+  shapes.forEach(item => {
+    item.clearMe();
+  });
+  currentShape.reSizeMe(MousePos(e, rect));
+  shapes.forEach(item => {
+    item.drawMe();
+  });
 }
 
 //Finish drawing, e still same;
@@ -38,7 +44,6 @@ function endDrawingShape(){
     shapes.push(currentShape);
   }
   reSize = false;
-  currentShape = null;
 };
 
 //creating shape;
