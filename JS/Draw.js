@@ -49,7 +49,7 @@ function DrawPencils(e, rect){
 function erase(e, rect){
   if (!CanErase) return;
   const tempMousePos = MousePos(e, rect);
-  ctx.clearRect(tempMousePos.x, tempMousePos.y, );
+  ctx.clearRect(tempMousePos.x, tempMousePos.y, 10, 10);
 }
 
 let startDrawing = false;

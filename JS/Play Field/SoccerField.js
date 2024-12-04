@@ -1,7 +1,7 @@
 const BG_GREEN = '../../Images/Background_Green.png';
 let ctx;
 let rect;
-let canvs;
+let canvas;
 // This is the main call for all render and create seccions;
 function DrawCanvas(){
   canvas = document.createElement("canvas");
@@ -15,15 +15,19 @@ function DrawCanvas(){
   rect = canvas.getBoundingClientRect();
 
   
-  
   drawPlayers();
 
 
-  canvas.onmousedown = (e) => {StartDrawing(e, rect); startDrawingRectangle(e, rect);}
-  canvas.onmouseup = (e) => {StopDrawing(e, rect); endDrawingRectangle();}
+  canvas.onmousedown = (e) => {
+    StartDrawing(e, rect);
+    startDrawingShape(e, rect);
+  }
+  canvas.onmouseup = (e) => {
+    StopDrawing(e, rect);
+    endDrawingShape();
+  }
   canvas.onmousemove = (e)=>{
-    drawingRectangle(e, rect);
-    if (!startDrawing) return;
+    drawingShape(e, rect);
     DrawPencils(e, rect);
     erase(e, rect);
   };

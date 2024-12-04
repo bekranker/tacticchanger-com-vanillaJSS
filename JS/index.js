@@ -52,32 +52,57 @@ const Elements = [
       {
         name: "Rectangle",
         functionalty: ()=>{
-          DrawingShapes = true;
+          DrawingShapes = !DrawingShapes;
           DrawingRectangle = !DrawingRectangle;
+          DrawingCircle = false;
+          DrawingLine = false;
+          DrawingArrow = false;
+          DrawingDashedRectangle = false;
+          DrawingDashedCircle = false;
+          DrawingDashedLine = false;
+          DrawingDashedArrow = false;
         }
       },
       {
         name: "Circle",
         functionalty: ()=>{
-          console.log("This is Green");
-          DrawingShapes = true;
+          DrawingShapes = !DrawingShapes;
           DrawingRectangle = false;
+          DrawingCircle = !DrawingCircle;
+          DrawingLine = false;
+          DrawingArrow = false;
+          DrawingDashedRectangle = false;
+          DrawingDashedCircle = false;
+          DrawingDashedLine = false;
+          DrawingDashedArrow = false;
         }
       },
       {
         name: "Arrow",
         functionalty: ()=>{
-          console.log("This is Blue");
-          DrawingShapes = true;
+          DrawingShapes = !DrawingShapes;
           DrawingRectangle = false;
+          DrawingCircle = false;
+          DrawingLine = false;
+          DrawingArrow = !DrawingArrow;
+          DrawingDashedRectangle = false;
+          DrawingDashedCircle = false;
+          DrawingDashedLine = false;
+          DrawingDashedArrow = false;
         }
       },
       {
         name: "Line",
         functionalty: ()=>{
-          console.log("This is Blue");
-          DrawingShapes = true;
+          DrawingShapes = !DrawingShapes;
           DrawingRectangle = false;
+          DrawingCircle = false;
+          DrawingLine = !DrawingLine;
+          DrawingArrow = false;
+          DrawingDashedRectangle = false;
+          DrawingDashedCircle = false;
+          DrawingDashedLine = false;
+          DrawingDashedArrow = false;
         }
       }
     ]
