@@ -1,51 +1,63 @@
+let DrawingShapes = false;
 let DrawingRectangle = false;
 let canDrawRectangle = false;
 let reSize = false;
 let currentRectangle = null;
 
+const rectangles = [];
+
 class RectangleComponent{
-  constructor(positions, size, colors, name){
+  constructor(positions, size, colors, name, startPosition){
     this.positions = positions;
     this.size = size;
     this.colors = colors;
     this.name = name;
+    this.startPosition = startPosition;
   }
-  renderMe = (e, rect)=>{
-    this.clearMe(e, rect);
-    this.drawMe(e, rect);
+  renderMe = ()=>{
+    this.drawMe();
+    this.clearMe();
   }
   drawMe = ()=>{
     ctx.beginPath();
     ctx.rect(this.positions.x, this.positions.y, this.size.x, this.size.y);
     ctx.strokeStyle = 'black';
+    ctx.lineWidth = 1;
     ctx.stroke();
-    ctx.lineWidth = this.size.x;
   }
-  // call thart when you need to resize rectangle
-  reSizeMe = (e)=>{
+  // call thart when you need to resize rectangle;
+  reSizeMe = ()=>{
     if (!reSize) return;
     console.log("sa");
-    this.size.x = Math.abs(this.positions.x - e.x);
-    this.size.y = Math.abs(this.positions.y - e.y);
-    this.renderMe(e, rect);
+    
+    this.size.x = e.x - this.startPosition.x;
+    this.size.y = e.y - this.startPosition.y;
+    this.renderMe();
   }
-  clearMe = (e, rect)=>{
-    ctx.clearRect(this.positions.x, this.positions.y, this.size.x , this.size.y );
+  clearMe = ()=>{
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
 }
 
-function startDrawingRectangle(e){
+function startDrawingRectangle(e, rect){
+  if(!DrawingShapes) return;
+  if(!DrawingRectangle) return;
   canDrawRectangle = true;
   reSize = true;
-  currentRectangle = new RectangleComponent(MousePos(e, rect), {x: 1, y: 1}, "Rectangle");
-  currentRectangle.drawMe(e, rect);
+  const mousePos = MousePos(e, rect);
+  currentRectangle = new RectangleComponent(mousePos, {x: 1, y: 1}, "Rectangle");
+  currentRectangle.startPosition = mousePos;
+  currentRectangle.renderMe();
 };
 function drawingRectangle(e, rect){
   if(!canDrawRectangle) return;
   currentRectangle.reSizeMe(MousePos(e, rect));
 }
 
-function endDrawingRectangle(e){
+function endDrawingRectangle(){
+  if (!rectangles.includes(currentRectangle)) {
+    rectangles.push(currentRectangle);
+  }
   reSize = false;
   canDrawRectangle = false;
 };

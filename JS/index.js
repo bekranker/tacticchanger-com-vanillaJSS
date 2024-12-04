@@ -10,11 +10,16 @@ const Elements = [
     [
       {
         name: "Green",
-        functionalty: ()=>{changeBackground(GREEN_BG_URL)}
+        functionalty: ()=>{changeBackground(GREEN_BG_URL)
+          DrawingShapes = false;
+        }
       },
       {
         name: "White",
-        functionalty: ()=>{changeBackground(WHITE_BG_URL)}
+        functionalty: ()=>{
+          changeBackground(WHITE_BG_URL)
+          DrawingShapes = false;
+        }
       }
     ]
   },
@@ -27,11 +32,16 @@ const Elements = [
         functionalty: ()=>{
           CanDraw = !CanDraw;
           CanErase = false;
+          DrawingShapes = false;
         }
       },
       {
         name: "Erase",
-        functionalty: ()=>{CanDraw = false; CanErase = !CanErase;}
+        functionalty: ()=>{
+          CanErase = !CanErase;
+          CanDraw = false;
+          DrawingShapes = false;
+        }
       },
     ]
   },
@@ -41,19 +51,34 @@ const Elements = [
     [
       {
         name: "Rectangle",
-        functionalty: ()=>{DrawingRectangle = !DrawingRectangle;}
+        functionalty: ()=>{
+          DrawingShapes = true;
+          DrawingRectangle = !DrawingRectangle;
+        }
       },
       {
         name: "Circle",
-        functionalty: ()=>{console.log("This is Green");}
+        functionalty: ()=>{
+          console.log("This is Green");
+          DrawingShapes = true;
+          DrawingRectangle = false;
+        }
       },
       {
         name: "Arrow",
-        functionalty: ()=>{console.log("This is Blue");}
+        functionalty: ()=>{
+          console.log("This is Blue");
+          DrawingShapes = true;
+          DrawingRectangle = false;
+        }
       },
       {
         name: "Line",
-        functionalty: ()=>{console.log("This is Blue");}
+        functionalty: ()=>{
+          console.log("This is Blue");
+          DrawingShapes = true;
+          DrawingRectangle = false;
+        }
       }
     ]
   },
@@ -63,11 +88,17 @@ const Elements = [
     [
       {
         name: "JPEG",
-        functionalty: ()=>{console.log("This is Red");}
+        functionalty: ()=>{
+          console.log("This is Red");
+          DrawingShapes = false;
+        }
       },
       {
         name: "PNG",
-        functionalty: ()=>{console.log("This is Green");}
+        functionalty: ()=>{
+          console.log("This is Green");
+          DrawingShapes = false;
+        }
       },
     ]
   },

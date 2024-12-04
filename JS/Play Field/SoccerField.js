@@ -1,9 +1,10 @@
 const BG_GREEN = '../../Images/Background_Green.png';
 let ctx;
 let rect;
+let canvs;
 // This is the main call for all render and create seccions;
 function DrawCanvas(){
-  const canvas = document.createElement("canvas");
+  canvas = document.createElement("canvas");
   ctx = canvas.getContext('2d');
   canvas.width = 1200;
   canvas.height = 800;
