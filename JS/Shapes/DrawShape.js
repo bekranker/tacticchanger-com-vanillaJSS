@@ -1,27 +1,38 @@
+
+//If we click any shape in panel;
 let DrawingShapes = false;
 let reSize = false;
+//we need a global variable bc of resizing method;
 let currentShape = null;
+
+//I know It looks messy but I have to finish this tie bc I have 2 more project :((;
 let DrawingRectangle, DrawingCircle, DrawingLine, DrawingArrow, DrawingDashedRectangle, DrawingDashedCircle, DrawingDashedLine, DrawingDashedArrow;
 
 const shapes = [];
+
+// for shape id;
 let index = 0;
 
-function startDrawingShape(e, rect){
+//starting draing shape, @param e is giving us reach to clientX and clientY variables;
+function startDrawingShape(e){
   if(!DrawingShapes) return;
 
   reSize = true;
-  const mousePos = MousePos(e, rect);
+  const mousePos = MousePos(e);
   currentShape = createComponent(mousePos);
   console.log(currentShape);
   
   currentShape.startPosition = mousePos;
   currentShape.drawMe();
 };
-function drawingShape(e, rect){
+
+//This function calling every time on mouse move on the canvas, e still same;
+function drawingShape(e){
   if (!reSize) return;
-  currentShape.reSizeMe(MousePos(e, rect));
+  currentShape.reSizeMe(MousePos(e));
 }
 
+//Finish drawing, e still same;
 function endDrawingShape(){
   if (!shapes.includes(currentShape)) {
     shapes.push(currentShape);
@@ -30,6 +41,7 @@ function endDrawingShape(){
   currentShape = null;
 };
 
+//creating shape;
 createComponent = (mousePos)=>{
   index++;
   if (DrawingRectangle) {

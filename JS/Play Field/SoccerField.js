@@ -19,17 +19,17 @@ function DrawCanvas(){
 
 
   canvas.onmousedown = (e) => {
-    StartDrawing(e, rect);
-    startDrawingShape(e, rect);
+    StartDrawing(e);
+    startDrawingShape(e);
   }
   canvas.onmouseup = (e) => {
-    StopDrawing(e, rect);
+    StopDrawing(e);
     endDrawingShape();
   }
   canvas.onmousemove = (e)=>{
-    drawingShape(e, rect);
-    DrawPencils(e, rect);
-    erase(e, rect);
+    drawingShape(e);
+    DrawPencils(e);
+    erase(e);
   };
 
   

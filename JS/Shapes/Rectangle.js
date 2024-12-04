@@ -19,7 +19,6 @@ class RectangleComponent{
   }
   // call thart when you need to resize rectangle;
   reSizeMe = (e)=>{
-    console.log("Rectangle is resizing");
     this.size.x = e.x - this.startPosition.x;
     this.size.y = e.y - this.startPosition.y;
     this.renderMe(e);
