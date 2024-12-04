@@ -30,16 +30,14 @@ class DrawPenc{
     const tempPos = MousePos(e, rect);
     ctx.clearRect(tempPos.x, tempPos.y, 20, 20);
   }
-  DeleteMe = () =>{
-    this.clearMe();
-    Delete(this.render);
-  }
 }
 
 
 
 function DrawPencils(e){
   if (!CanDraw) return;
+  if (!startDrawing) return;
+
   const tempMark = new DrawPenc(MousePos(e, rect), 1, {backgroundColor: "#000000", borderColor: "#ffffff"}, `mark`);
   tempMark.render(e, rect);
   if (!marks.includes(tempMark)) {

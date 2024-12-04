@@ -52,6 +52,7 @@ const Elements = [
       {
         name: "Rectangle",
         functionalty: ()=>{
+          CanDraw = false;
           DrawingRectangle = !DrawingRectangle;
           DrawingShapes = DrawingRectangle ? true : false;
           DrawingCircle = false;
@@ -66,6 +67,8 @@ const Elements = [
       {
         name: "Circle",
         functionalty: ()=>{
+          CanDraw = false;
+
           DrawingCircle = !DrawingCircle;
           DrawingShapes = DrawingCircle ? true : false;
           DrawingRectangle = false;
@@ -80,6 +83,8 @@ const Elements = [
       {
         name: "Arrow",
         functionalty: ()=>{
+          CanDraw = false;
+
           DrawingArrow = !DrawingArrow;
           DrawingShapes = DrawingArrow ? true : false;
           DrawingRectangle = false;
@@ -94,6 +99,8 @@ const Elements = [
       {
         name: "Line",
         functionalty: ()=>{
+          CanDraw = false;
+
           DrawingLine = !DrawingLine;
           DrawingShapes = DrawingLine ? true : false;
           DrawingRectangle = false;
