@@ -80,11 +80,11 @@ const Elements = [
       {
         name: "Arrow",
         functionalty: ()=>{
-          DrawingShapes = !DrawingShapes;
+          DrawingArrow = !DrawingArrow;
+          DrawingShapes = DrawingArrow ? true : false;
           DrawingRectangle = false;
           DrawingCircle = false;
           DrawingLine = false;
-          DrawingArrow = !DrawingArrow;
           DrawingDashedRectangle = false;
           DrawingDashedCircle = false;
           DrawingDashedLine = false;
@@ -94,10 +94,10 @@ const Elements = [
       {
         name: "Line",
         functionalty: ()=>{
-          DrawingShapes = !DrawingShapes;
+          DrawingLine = !DrawingLine;
+          DrawingShapes = DrawingLine ? true : false;
           DrawingRectangle = false;
           DrawingCircle = false;
-          DrawingLine = !DrawingLine;
           DrawingArrow = false;
           DrawingDashedRectangle = false;
           DrawingDashedCircle = false;

@@ -43,6 +43,7 @@ function endDrawingShape(){
   if (!shapes.includes(currentShape)) {
     shapes.push(currentShape);
   }
+  ctx.save();
   reSize = false;
 };
 
@@ -54,5 +55,8 @@ createComponent = (mousePos)=>{
   }
   else if (DrawingCircle) {
     return new CircleComponent(mousePos, {x: 1, y: 1}, {backgroundColor: 'black', borderColor: 'black'}, `Shape-${index}`, mousePos);
+  }
+  else if (DrawingLine) {
+    return new LineComponent(mousePos, {x: 1, y: 1}, {backgroundColor: 'black', borderColor: 'black'}, `Shape-${index}`, mousePos);
   }
 }
