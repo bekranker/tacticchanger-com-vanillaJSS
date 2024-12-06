@@ -1,7 +1,7 @@
 const WHITE_BG_URL = '../Images/Background_White.png';
 const GREEN_BG_URL = '../Images/Background_Green.png';
 
-
+//@param Drawing Shape is set the boolean value for drawing or not drawing
 
 const Elements = [
   {
@@ -52,64 +52,36 @@ const Elements = [
       {
         name: "Rectangle",
         functionalty: ()=>{
-          CanDraw = false;
-          DrawingRectangle = !DrawingRectangle;
-          DrawingShapes = DrawingRectangle ? true : false;
-          DrawingCircle = false;
-          DrawingLine = false;
-          DrawingArrow = false;
-          DrawingDashedRectangle = false;
-          DrawingDashedCircle = false;
-          DrawingDashedLine = false;
-          DrawingDashedArrow = false;
+          componentName = "Rectangle";
+          CanErase = false;
+          DrawingShapes = !DrawingShapes;
         }
       },
       {
         name: "Circle",
         functionalty: ()=>{
-          CanDraw = false;
+          componentName = "Circle";
+          CanErase = false;
+          DrawingShapes = !DrawingShapes;
 
-          DrawingCircle = !DrawingCircle;
-          DrawingShapes = DrawingCircle ? true : false;
-          DrawingRectangle = false;
-          DrawingLine = false;
-          DrawingArrow = false;
-          DrawingDashedRectangle = false;
-          DrawingDashedCircle = false;
-          DrawingDashedLine = false;
-          DrawingDashedArrow = false;
         }
       },
       {
         name: "Arrow",
         functionalty: ()=>{
-          CanDraw = false;
+          componentName = "Arrow";
+          CanErase = false;
+          DrawingShapes = !DrawingShapes;
 
-          DrawingArrow = !DrawingArrow;
-          DrawingShapes = DrawingArrow ? true : false;
-          DrawingRectangle = false;
-          DrawingCircle = false;
-          DrawingLine = false;
-          DrawingDashedRectangle = false;
-          DrawingDashedCircle = false;
-          DrawingDashedLine = false;
-          DrawingDashedArrow = false;
         }
       },
       {
         name: "Line",
         functionalty: ()=>{
-          CanDraw = false;
+          componentName = "Line";
+          CanErase = false;
+          DrawingShapes = !DrawingShapes;
 
-          DrawingLine = !DrawingLine;
-          DrawingShapes = DrawingLine ? true : false;
-          DrawingRectangle = false;
-          DrawingCircle = false;
-          DrawingArrow = false;
-          DrawingDashedRectangle = false;
-          DrawingDashedCircle = false;
-          DrawingDashedLine = false;
-          DrawingDashedArrow = false;
         }
       }
     ]

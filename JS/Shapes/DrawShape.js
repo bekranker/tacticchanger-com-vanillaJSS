@@ -6,7 +6,7 @@ let reSize = false;
 let currentShape = null;
 
 //I know It looks messy but I have to finish this tie bc I have 2 more project :((;
-let DrawingRectangle, DrawingCircle, DrawingLine, DrawingArrow, DrawingDashedRectangle, DrawingDashedCircle, DrawingDashedLine, DrawingDashedArrow;
+let componentName = "";
 
 const shapes = [];
 
@@ -50,13 +50,13 @@ function endDrawingShape(){
 //creating shape;
 createComponent = (mousePos)=>{
   index++;
-  if (DrawingRectangle) {
+  if (componentName === "Rectangle") {
     return new RectangleComponent(mousePos, {x: 1, y: 1}, {backgroundColor: 'black', borderColor: 'black'}, `Shape-${index}`, mousePos);
   }
-  else if (DrawingCircle) {
+  else if (componentName === "Circle") {
     return new CircleComponent(mousePos, {x: 1, y: 1}, {backgroundColor: 'black', borderColor: 'black'}, `Shape-${index}`, mousePos);
   }
-  else if (DrawingLine) {
+  else if (componentName === "Line") {
     return new LineComponent(mousePos, {x: 1, y: 1}, {backgroundColor: 'black', borderColor: 'black'}, `Shape-${index}`, mousePos);
   }
 }

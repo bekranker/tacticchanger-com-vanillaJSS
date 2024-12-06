@@ -46,6 +46,8 @@ function DrawPencils(e){
 }
 function erase(e){
   if (!CanErase) return;
+  if (CanDraw) return;
+  
   const tempMousePos = MousePos(e, rect);
   ctx.clearRect(tempMousePos.x, tempMousePos.y, 10, 10);
 }
