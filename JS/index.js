@@ -1,131 +1,130 @@
-const WHITE_BG_URL = '../Images/Background_White.png';
-const GREEN_BG_URL = '../Images/Background_Green.png';
+const WHITE_BG_URL = "../Images/Background_White.png";
+const GREEN_BG_URL = "../Images/Background_Green.png";
 
 //@param Drawing Shape is set the boolean value for drawing or not drawing
 
 const Elements = [
   {
     name: "Backgrounds",
-    panelItems: 
-    [
+    panelItems: [
       {
         name: "Green",
-        functionalty: ()=>{changeBackground(GREEN_BG_URL)
+        functionalty: () => {
+          changeBackground(GREEN_BG_URL);
           DrawingShapes = false;
-        }
+        },
       },
       {
         name: "White",
-        functionalty: ()=>{
-          changeBackground(WHITE_BG_URL)
+        functionalty: () => {
+          changeBackground(WHITE_BG_URL);
           DrawingShapes = false;
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
   {
     name: "Pencil",
-    panelItems: 
-    [
+    panelItems: [
       {
         name: "Pen",
-        functionalty: ()=>{
+        functionalty: () => {
           CanDraw = !CanDraw;
           CanErase = false;
           DrawingShapes = false;
-        }
+        },
       },
       {
         name: "Erase",
-        functionalty: ()=>{
+        functionalty: () => {
           CanErase = !CanErase;
           CanDraw = false;
           DrawingShapes = false;
-        }
+        },
       },
-    ]
+    ],
   },
   {
     name: "Shapes",
-    panelItems: 
-    [
+    panelItems: [
       {
         name: "Rectangle",
-        functionalty: ()=>{
+        functionalty: () => {
+          CanDraw = false;
+          DrawingShapes = componentName !== "Rectangle" ? true : false;
           componentName = "Rectangle";
           CanErase = false;
-          DrawingShapes = !DrawingShapes;
-        }
+        },
       },
       {
         name: "Circle",
-        functionalty: ()=>{
+        functionalty: () => {
+          CanDraw = false;
+
+          DrawingShapes = componentName !== "Circle" ? true : false;
           componentName = "Circle";
           CanErase = false;
-          DrawingShapes = !DrawingShapes;
-
-        }
+        },
       },
       {
         name: "Arrow",
-        functionalty: ()=>{
+        functionalty: () => {
+          CanDraw = false;
+
+          DrawingShapes = componentName !== "Arrow" ? true : false;
           componentName = "Arrow";
           CanErase = false;
-          DrawingShapes = !DrawingShapes;
-
-        }
+        },
       },
       {
         name: "Line",
-        functionalty: ()=>{
+        functionalty: () => {
+          CanDraw = false;
+
+          DrawingShapes = componentName !== "Line" ? true : false;
           componentName = "Line";
           CanErase = false;
-          DrawingShapes = !DrawingShapes;
-
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
   {
     name: "Download",
-    panelItems: 
-    [
+    panelItems: [
       {
         name: "JPEG",
-        functionalty: ()=>{
+        functionalty: () => {
           console.log("This is Red");
           DrawingShapes = false;
-        }
+        },
       },
       {
         name: "PNG",
-        functionalty: ()=>{
+        functionalty: () => {
           console.log("This is Green");
           DrawingShapes = false;
-        }
+        },
       },
-    ]
+    ],
   },
 ];
 
 /* This lines of code just creating navigation buttons and panel's inside that buttons.
 If you want to change some data (name, panel item's names etc.) check the @param Elements variable
 */
-function CreateNavigationBar(){
+function CreateNavigationBar() {
   const parentNavDiv = document.querySelector(".navigation-bar");
-  
-  Elements.forEach((element)=>{
 
-    
+  Elements.forEach((element) => {
     const parentDivOfButtonAndPanel = document.createElement("div");
     parentDivOfButtonAndPanel.classList.add("nav-button-parent-div");
     parentNavDiv.appendChild(parentDivOfButtonAndPanel);
 
     //Navigation Element
     const newButton = document.createElement("button");
-    
+
     newButton.classList.add("nav-bar-button");
-    
+
     newButton.innerHTML = `${element.name}`;
     parentDivOfButtonAndPanel.appendChild(newButton);
 
@@ -134,24 +133,25 @@ function CreateNavigationBar(){
   });
 }
 //element is the array that we take from buttons object props.
-function createLists(parent, element, button){
-
+function createLists(parent, element, button) {
   //we are creating the Panel UL
   let newUl = document.createElement("ul");
   //for styling with css
   newUl.classList.add("element-of-nav-bar-panel");
 
   //It's gonna take all items for every declared element (i.e panel items object like navigation button etc.)
-  for(let i = 0; i < element.panelItems.length; i++){
+  for (let i = 0; i < element.panelItems.length; i++) {
     //creating the items in the panel
     let newLi = document.createElement("li");
     newLi.id = `${element.panelItems[i].name}-panel-item-${i}`;
     newLi.innerHTML = `${element.panelItems[i].name}`;
-    newLi.onmousedown = ()=>{element.panelItems[i].functionalty();}
+    newLi.onmousedown = () => {
+      element.panelItems[i].functionalty();
+    };
     newUl.appendChild(newLi);
   }
-  button.onmouseenter = ()=>navBarEnter(newUl);
-  button.onmouseleave = ()=>navBarExit(newUl);
+  button.onmouseenter = () => navBarEnter(newUl);
+  button.onmouseleave = () => navBarExit(newUl);
   parent.appendChild(newUl);
 }
 
@@ -159,13 +159,12 @@ function createLists(parent, element, button){
 // ----------------------------Theese functions at the bellow are just simply for panel animation----------------------------
 // --------------------------------------------------------------------------------------------------------------------------
 
-
 //navigation element mouse enter function
-function navBarEnter(panel){
+function navBarEnter(panel) {
   panel.style.display = "block";
 }
 
 //navigation element mouse exit function
-function navBarExit(panel){
+function navBarExit(panel) {
   panel.style.display = "none";
 }
