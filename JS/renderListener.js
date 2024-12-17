@@ -1,9 +1,16 @@
 //you can select your fps value. just simply change the 60 to what ever you want to;
 const FPS = 1000 / 60;
 let DeltaTime;
-
+const mouse = {
+  mousePosition: { x: 0, y: 0 },
+  mouseStartPosition: { x: 0, y: 0 },
+  mouseEndPosition: { x: 0, y: 0 },
+};
 window.onload = () => {
   //orders is important !!..!!..!!..!!;
+  document.addEventListener("mousedown", updateMouseStartPosition);
+  document.addEventListener("mousemove", updateMousePosition);
+  document.addEventListener("mouseup", updateMouseEndPosition);
 
   CreateNavigationBar();
   createOptions();
@@ -38,4 +45,14 @@ function registerRenderer(arr) {
 function Delete(value) {
   rendererList = rendererList.filter((item, _) => item !== value);
   console.log(rendererList);
+}
+
+function updateMousePosition(event) {
+  mouse.mousePosition = MousePos(event, rect);
+}
+function updateMouseStartPosition(event) {
+  mouse.mouseStartPosition = MousePos(event, rect);
+}
+function updateMouseEndPosition(event) {
+  mouse.mouseEndPosition = MousePos(event, rect);
 }
