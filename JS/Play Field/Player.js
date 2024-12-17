@@ -1,13 +1,15 @@
 class Player {
-  constructor(positions, radius, colors, name) {
+  constructor(positions, radius, colors, name, data) {
     this.position = positions;
     this.radius = radius;
     this.colors = colors;
     this.name = name;
+    this.data = data;
     registerRenderer(this.render);
   }
   render = () => {
     this.clearMe();
+    this.changePos(this.position);
     this.drawMe();
   };
   drawMe = () => {
@@ -25,5 +27,8 @@ class Player {
       this.radius * 2,
       this.radius * 2
     );
+  };
+  changePos = (newPos) => {
+    this.position = newPos;
   };
 }
