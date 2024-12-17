@@ -18,7 +18,6 @@ function startDrawingShape(e) {
 
   const mousePos = MousePos(e, rect);
   currentShape = createComponent(mousePos);
-  console.log(currentShape);
 
   reSize = currentShape != null;
   currentShape.startPosition = mousePos;
@@ -29,11 +28,14 @@ function startDrawingShape(e) {
 function drawingShape(e) {
   if (!reSize) return;
   shapes.forEach((item) => {
-    item.clearMe();
+    if (item !== null) item.clearMe();
   });
   currentShape.reSizeMe(MousePos(e, rect));
+  marks.forEach((mark) => {
+    if (mark !== null) mark.render(e);
+  });
   shapes.forEach((item) => {
-    item.drawMe();
+    if (item !== null) item.drawMe();
   });
 }
 

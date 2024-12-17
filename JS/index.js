@@ -72,7 +72,7 @@ const Elements = [
           CanDraw = false;
 
           DrawingShapes = componentName !== "Arrow" ? true : false;
-          componentName = "Arrow";
+          componentName = "Line";
           CanErase = false;
         },
       },

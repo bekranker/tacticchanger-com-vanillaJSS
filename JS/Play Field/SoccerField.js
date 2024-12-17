@@ -15,7 +15,7 @@ function DrawCanvas() {
   canvasParent.appendChild(canvas);
   rect = canvas.getBoundingClientRect();
   drawPlayers();
-  document.querySelector(".canvas").load = () => {
+  document.querySelector(".canvas").onload = () => {
     console.log("canvas loaded");
   };
 
@@ -23,8 +23,8 @@ function DrawCanvas() {
     StartDrawing(e);
     startDrawingShape(e);
   };
-  canvas.onmouseup = (e) => {
-    StopDrawing(e);
+  canvas.onmouseup = () => {
+    StopDrawing();
     endDrawingShape();
   };
   canvas.onmousemove = (e) => {
