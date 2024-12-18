@@ -5,11 +5,8 @@ class Player {
     this.colors = colors;
     this.name = name;
     this.data = data;
-    registerRenderer(this.render);
   }
   render = () => {
-    this.clearMe();
-    this.changePos(this.position);
     this.drawMe();
   };
   drawMe = () => {
@@ -29,6 +26,10 @@ class Player {
     );
   };
   changePos = (newPos) => {
+    this.clearMe();
+    // Yeni pozisyonu güncelle
     this.position = newPos;
+    // Yeni pozisyonda çizimi yap
+    this.render();
   };
 }
